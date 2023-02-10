@@ -4,7 +4,6 @@ const { generarJWT } = require("../helpers/generar-jwt");
 const { Usuario, Rol } = require("../models");
 
 
-
 const obtenerUsuarios = async (req, res = response) => {
 
     try{
@@ -17,16 +16,13 @@ const obtenerUsuarios = async (req, res = response) => {
         });
 
         const usuariosData = usuarios.map( ({ dataValues }) => {
-
             return {
                 idUsuario: dataValues.id_usuario,
                 idRol: dataValues.id_rol,
                 nombreUsuario: dataValues.nombre_usuario,
                 correo: dataValues.correo,
             }
-       
         });
-
 
         res.json({
             usuarios: usuariosData
